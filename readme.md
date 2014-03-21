@@ -24,3 +24,4 @@ and open index.html in a browser.
 
  * Points earned Today
  * Length of current programming streak
+ * Machine details
