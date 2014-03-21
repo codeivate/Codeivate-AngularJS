@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>Codeivate Summary AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+
+    <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+
+    <script src="app.js" type="text/javascript"></script>
+    <script src="maincontroller.js" type="text/javascript"></script>
+</head>
+<body>
+<div id='content' ng-app='CodeivateSummaryApp' ng-controller='MainController'>
+    <h1>Profile for {{codeivate.name}}</h1>
+
+
+    <div ng-show="codeivate.programming_now">
+        Programming in  Language {{codeivate.current_language}}  <b ng-show="codeivate.streaking_now">On a coding streak</b>
+    </div>
+    <div ng-hide="codeivate.programming_now">
+        AFK
+    </div>
+
+    <h2>Overall level {{codeivate.level.level}}</h2>
+    <progressbar max="100" value="codeivate.level.progress">
+        <span style="color:black; white-space:nowrap;">{{codeivate.level.progress}}</span>
+    </progressbar>
+
+    <h2>Focus level {{codeivate.focus_level.level}}</h2>
+    <progressbar max="100" value="codeivate.focus_level%1*100">
+        <span style="color:black; white-space:nowrap;">{{codeivate.focus_level.progress}}</span>
+    </progressbar>
+
+
+
+
+    <p>Best streak {{codeivate.max_streak}}</p>
+
+    <p>Time spent {{codeivate.time_spent}}</p>
+
+    <p>Days coded {{codeivate.total_days_coded}}</p>
+
+    <p>Total flow states {{codeivate.total_flow_states}}</p>
+
+
+    <ul>
+        <li ng-repeat="details in languages">
+
+            <p>{{details.name}} Level {{details.currentLevel}}</p>
+            <progressbar max="100" value="details.progress">
+                <span style="color:black; white-space:nowrap;">{{details.progress}}%</span>
+            </progressbar>
+
+
+        </li>
+    </ul>
+
+
+</div>
+</body>
+</html>
