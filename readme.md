@@ -5,13 +5,13 @@ Prototype of new user summary page.
 This version requires NodeJS, NPM and Compass be installed.  
 
 fork this repo 
-  git clone https://github.com/TheWoollyBully/Codeivate-AngularJS.git
+    git clone https://github.com/TheWoollyBully/Codeivate-AngularJS.git
 go to the directory
-  cd Codeivate-AngularJS
+    cd Codeivate-AngularJS
 install dependencies
-  npm install && bower install
+    npm install && bower install
 run dev server
-  grunt serve
+    grunt serve
 
 navigate to http://127.0.0.1:9000/#/Paul 
 
