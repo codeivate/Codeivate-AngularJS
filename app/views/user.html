@@ -25,9 +25,9 @@
 
 <ul>
   <li data-ng-repeat="language in itemsToArray(languageDetails) | orderBy:['currentLevel', 'progress']:true">
-    <p>{{language.name}} Level {{language.currentLevel}}</p>
-    <progressbar max="max" value="language.progress">
-      <span style="color:black; white-space:nowrap;">{{language.progress}}%</span>
+    <p><span data-ng-bind="language.name"></span> <span data-ng-bind="'Level ' + language.currentLevel"></span> <span data-ng-if="language.points > 0" data-ng-bind="'+' + language.points"></span></p>
+    <progressbar data-max="max" data-value="language.progress">
+      <span style="color:black; white-space:nowrap;" data-ng-bind="language.progress + '%'"></span>
     </progressbar>
   </li>
 </ul>
