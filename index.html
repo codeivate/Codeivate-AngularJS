@@ -21,7 +21,6 @@
 <div id='content' ng-app='CodeivateSummaryApp' ng-controller='MainController'>
     <h1>Profile for {{codeivate.name}}</h1>
 
-
     <div ng-show="codeivate.programming_now">
         Programming in  Language {{codeivate.current_language}}  <b ng-show="codeivate.streaking_now">On a coding streak</b>
     </div>
@@ -38,9 +37,6 @@
     <progressbar max="100" value="codeivate.focus_level%1*100">
         <span style="color:black; white-space:nowrap;">{{codeivate.focus_level.progress}}</span>
     </progressbar>
-
-
-
 
     <p>Best streak {{codeivate.max_streak}}</p>
 

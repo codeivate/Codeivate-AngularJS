@@ -1,0 +1,12 @@
+
+<form data-ng-submit="process()">
+  <div id="name-group" class="form-group">
+    <label>Name</label>
+    <input type="text" name="name" class="form-control" placeholder="Paul" data-ng-model="data.name">
+    <span class="help-block"></span>
+  </div>
+  <button type="submit" class="btn btn-success btn-lg btn-block">
+    <span class="glyphicon glyphicon-flash"></span> Submit!
+  </button>
+</form>
+{{data}}

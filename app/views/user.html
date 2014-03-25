@@ -1,0 +1,39 @@
+<h1>Profile for {{user.name}}</h1>
+
+<div data-ng-show="user.programming_now" >
+    <span data-ng-bind="'Currently coding in ' + user.current_language"></span> <b data-ng-show="user.streaking_now" data-ng-bind="'On a coding streak'"></b>
+</div>
+<div data-ng-hide="user.programming_now">
+    AFK
+</div>
+
+<h2 data-ng-bind="'Level ' + user.level.currentPeak"></h2>
+<h3><span data-ng-bind="user.total_time.hours + ' hours'"></span> <span data-ng-bind="user.total_time.minutes + ' minutes'"></span></h3>
+<progressbar class="success" data-ng-class="{'progress-striped active': user.programming_now}" data-max="max" data-value="user.level.progress">
+    <span style="color:black; white-space:nowrap;" data-ng-bind="user.level.progress + '%'"></span>
+</progressbar>
+
+<h2 data-ng-bind="'Focus level ' + user.focus_level.level"></h2>
+<progressbar class="" data-ng-class="{'progress-striped active': user.programming_now}" data-max="max" data-value="user.focus_level.progress">
+    <span style="color:black; white-space:nowrap;" data-ng-bind="user.focus_level.progress + '%'"></span>
+</progressbar>
+
+<p><span data-ng-bind="'Days coding'"></span> <b data-ng-bind="user.total_days_coded"></b></p>
+<p><span data-ng-bind="'Flow states'"></span> <b data-ng-bind="user.total_flow_states"></b></p>
+
+<p><span data-ng-bind="'Best streak:'"></span> <b data-ng-bind="user.best_streak.hours + ' hours'"></b> <b data-ng-bind="user.best_streak.minutes + ' minutes'"></b></p>
+
+<ul>
+  <li data-ng-repeat="language in itemsToArray(languageDetails) | orderBy:['currentLevel', 'progress']:true">
+    <p><span data-ng-bind="language.name"></span> <span class="badge" data-ng-class="{ 'badge-success' : language.currentLevel > 0 }" data-ng-bind="'Level ' + language.currentLevel"></span> <span data-ng-if="language.points > 0" data-ng-bind="'+' + language.points"></span></p>
+    <progressbar data-max="max" data-value="language.progress"  data-ng-class="{'progress-striped active' : language.name === user.current_language}">
+      <span style="color:black; white-space:nowrap;" data-ng-bind="language.progress + '%'"></span>
+    </progressbar>
+  </li>
+</ul>
+
+<hr />
+{{user}}
+<br />
+<br />
+{{languageDetails}}

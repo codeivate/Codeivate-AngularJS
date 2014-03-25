@@ -5,7 +5,7 @@ app.controller("MainController", function($scope, $http, $location){
 
 
 
-	$http.jsonp('http://codeivate.com/users/'+username+'.json?callback=JSON_CALLBACK ').success(function(data) {
+    $http.jsonp('http://codeivate.com/users/'+username+'.json?callback=JSON_CALLBACK ').success(function(data) {
         var language;
         var languageDetails;
         $scope.languages = data.languages;
@@ -18,11 +18,11 @@ app.controller("MainController", function($scope, $http, $location){
             languageDetails.currentLevel = Math.floor(languageDetails.level);
             languageDetails.progress = Math.round(languageDetails.level%1*100);
         }
-		
-		$scope.platforms = data.platforms;
-		delete data.platforms;
-			
-		$scope.codeivate = data;
+
+        $scope.platforms = data.platforms;
+        delete data.platforms;
+
+        $scope.codeivate = data;
 
         var level = $scope.codeivate.level;
 
@@ -37,11 +37,11 @@ app.controller("MainController", function($scope, $http, $location){
         $scope.codeivate.focus_level.progress = Math.round(focus_level%1*100);
 
         //For debug purposes
-		console.log('user details', $scope.codeivate);
-		console.log('platform details', $scope.platforms);
-		console.log('languages', $scope.languages);
+        console.log('user details', $scope.codeivate);
+        console.log('platform details', $scope.platforms);
+        console.log('languages', $scope.languages);
 
-	});
+    });
 
 
 });
@@ -70,12 +70,12 @@ app.filter('orderObjectBy', function(){
 
 //TODO: implement later
 /**
-	 var poll = function() {
+     var poll = function() {
         $timeout(function() {
             $scope.value++;
             poll();
         }, 1000);
-    };     
-   poll();	
-	$.getJSON("http://codeivate.com/users/paul.json?callback=?",function(d){console.dir(d);});
+    };
+   poll();
+    $.getJSON("http://codeivate.com/users/paul.json?callback=?",function(d){console.dir(d);});
    **/
