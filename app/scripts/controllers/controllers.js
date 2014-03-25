@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('codeivateApp')
-  .controller('MainCtrl', ['$scope', function ($scope) {
+  .controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.data = {};
 
-}]);
+    $scope.process = function() {
+      $location.path('/' + $scope.data.name);
+    };
+  }]);
 
 angular.module('codeivateApp')
   .controller('UserCtrl', ['$scope', '$timeout', '$routeParams', 'User', function ($scope, $timeout, $routeParams, User) {
@@ -13,7 +17,7 @@ angular.module('codeivateApp')
 
     (function updateUser() {
       User.jsonpQuery({username: $routeParams.username}, function (data) {
-        $timeout(updateUser, 30000);
+        $timeout(updateUser, 1000);
         $scope.user = data;
 
         // Evaluate the level
